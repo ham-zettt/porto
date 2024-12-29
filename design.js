@@ -1,91 +1,65 @@
+const designTools = [
+    { name: "Inkscape", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/inkscape/inkscape-original.svg" },
+    { name: "Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
+    { name: "Canva", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" }, // Use a direct link to Canva logo
+    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+];
+
 const projectsDesign = [
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "35th Central Group",
+        image: "/images/design/centralgroup.png",
+        tags: [
+            { name: "eco" },
+            { name: "elegant" },
         ]
     },
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "Astrea-ASIC",
+        image: "/images/design/asic.png",
+        tags: [
+            { name: "monochrome" },
+            { name: "fintage" },
         ]
     },
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "Blue Cotton",
+        image: "/images/design/bluecotton.png",
+        tags: [
+            { name: "elegant" },
+            { name: "modern" },
         ]
     },
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "LC Project",
+        image: "/images/design/lc.png",
+        tags: [
+            { name: "typography" },
+            { name: "monochrome" },
         ]
     },
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "FID Channel",
+        image: "/images/design/fid.png",
+        tags: [
+            { name: "geometry" },
+            { name: "minimalist" },
         ]
     },
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "Y-Getion",
+        image: "/images/design/ygetion.png",
+        tags: [
+            { name: "unity" },
+            { name: "solid" },
         ]
     },
     {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+        title: "VTMA E-Sport",
+        image: "/images/design/vtma.png",
+        tags: [
+            { name: "futuristic" },
+            { name: "shiny" },
         ]
     },
-    {
-        title: "Tambal Ban Online",
-        description: "An application that connects users with nearby tire repairmans  services",
-        image: "/images/me.jpg",
-        link: "#",
-        tools: [
-            { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-            { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
-        ]
-    },
-    
 ];

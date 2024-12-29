@@ -9,17 +9,18 @@
     <script src="web.js"></script>
     <script src="design.js"></script>
     <script src="video.js"></script>
-    <script src="swiper.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Barriecito&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zen+Dots&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-100 text-gray-900 font-[Afacad]"></body>
-    <nav class="bg-gray-100 text-2xl text-gray-900 p-4 fixed w-full top-0 z-50">
-        <div class="max-w-screen-2xl mx-auto flex justify-between items-center pb-4 border-b border-gray-800">
+    <nav class="bg-gray-100 bg-opacity-80 text-xl text-gray-900 p-4 fixed w-full top-0 z-50 backdrop-blur-lg">
+        <div class="max-w-5xl mx-auto flex justify-between">
             <div class="font-bold">IlhamZ</div>
             <ul class="flex space-x-6">
                 <li><a href="#about" class="hover:text-gray-400 transition">About</a></li>
@@ -30,15 +31,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="max-w-screen-2xl mx-auto text-black py-20 h-screen flex">
+    <section id="hero" class="hero max-w-5xl mx-auto text-black py-20 h-screen flex">
         <div class="w-1/2 flex flex-col justify-center">
-            <p class="text-xl font-semibold font-sans"><span class="italic text-red-700">Created By</span> MUHAMMAD ILHAM ZAKARIA</p>
-            <h1 class="text-[6rem] font-[Poppins] font-bold leading-[0.9] text-gray-800 py-10 transition-all duration-300 ease-in-out relative z-10">Personal Portfolio</h1>
-            <div class="h-5 bg-red-700 w-24 -mt-5 mb-10 relative"></div>
-            <p class="text-xl italic">I’m a Informatic Engineering College-Student with a focus on web-development. I specialize in building user-friendly, responsive and visually appealing websites using web-tools and frameworks</p>
+            <p class="text-md font-semibold font-sans"><span class="italic text-red-700">Created By</span> MUHAMMAD ILHAM ZAKARIA</p>
+            <h1 class="text-[4rem] font-[Poppins] font-bold leading-[0.9] text-gray-800 py-10 transition-all duration-300 ease-in-out relative z-10">personal portfolio</h1>
+            <div class="h-3 bg-red-600 w-20 -mt-5 mb-10 relative"></div>
+            <p class="italic">I’m a Informatic Engineering College-Student with a focus on web-development. I specialize in building user-friendly, responsive and visually appealing websites using web-tools and frameworks</p>
             <div class="flex gap-4">
-                <a href="#" class="bg-white border border-red-700 text-red-700 px-6 py-3 rounded-lg shadow-lg hover:bg-red-700 hover:text-white transition-all duration-300 ease-in-out text-center mt-6 inline-block">Explore More</a>
-                <a href="/path/to/your/cv.pdf" download class="bg-red-700 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-red-900 transition-all duration-300 ease-in-out text-center mt-6 flex items-center justify-center gap-2">
+                <a href="/path/to/your/cv.pdf" download class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white text-sm px-4 py-3 rounded-full shadow-lg hover:bg-gradient-to-r hover:from-red-700 hover:via-red-800 hover:to-red-900 text-center mt-6 flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a1 1 0 01-1-1v-6H7a1 1 0 01-.707-1.707l3-3a1 1 0 011.414 0l3 3A1 1 0 0113 11h-2v6a1 1 0 01-1 1zM4 4a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd" />
                     </svg>
@@ -53,10 +53,10 @@
 
     
     <!-- About Section -->
-    <section id="about" class="py-16 bg-red-700 text-center rounded-3xl">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-[2.5rem] font-bold text-white mb-8 uppercase">SKILL & EXPERIENCE</h2>
-            <div id="aboutContainer" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+    <section id="about" class="py-14 bg-red-600 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-[2.5rem] font-bold text-white mb-8">Skills & Experience</h2>
+            <div id="aboutContainer" class="grid grid-cols-1 md:grid-cols-3"></div>
         </div>
     </section>
     <script>
@@ -69,39 +69,63 @@
                 `;
             });
             aboutContainer.innerHTML += `
-                <div class="bg-gray-100 px-2 pt-5 rounded-lg shadow-lg group relative overflow-hidden w-full">
+                <div class="bg-gray-100 pt-4 rounded-lg shadow-lg w-72 mx-auto">
                     <div class="flex flex-col items-center">
-                        <img src="${section.icon}" alt="${section.title} Icon" class="w-12 h-12 my-3">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">${section.title}</h3>
+                        <img src="${section.icon}" alt="${section.title} Icon" class="w-10 h-10 my-3">
+                        <h3 class="text-xl font-bold text-gray-800">${section.title}</h3>
                     </div>
-                    <div class="h-48 -my-3">
-                        <p class="text-lg text-gray-700 p-5 leading-[1.3]">
+                    <div class="pb-6 -my-3">
+                        <p class="text-gray-700 p-5 leading-[1.3]">
                             ${section.description}
                         </p>
-                        <div class="flex justify-center w-8 mx-auto">
-                            ${languagesHTML}
-                        </div>
                     </div>
                 </div>
             `;
         });
     </script>
 
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-screen-2xl mx-auto py-40 flex flex-col md:flex-row items-start">
-        <div class="w-2/5 pr-16 my-auto">
-            <h2 class="text-[4rem] text-red-700 mb-4 leading-[0.9] text-left font-['JetBrains_Mono'] font-bold ">Code & Create</h2>
-            <p class="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
-        </div>
-        <div id="projectContainerWeb" class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full"></div>
+
+    <!-- Web Title -->
+    <section id="title" class="h-screen my-40 flex flex-col items-center justify-center">
+        <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-center font-bold">my website projects.</h2>
+        <p class="text-lg text-center text-gray-700 italic">"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson</p>
     </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-5xl mx-auto pt-10 flex flex-col md:flex-row items-start">
+        <div class="w-2/5 pr-16 sticky top-20">
+            <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold ">create & code.</h2>
+            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
+        </div>
+        <div id="projectContainerWeb" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
+    </section>
+
+    <!-- Tools used -->
+    <div class="text-center py-7 my-16 bg-white border-y border-red-700">
+        <div class="max-w-5xl mx-auto">
+            <p class="text-3xl font-bold text-red-700">Programming Tools Used</p>
+            <div id="toolsUsedWeb" class="flex justify-center gap-8 mt-4"></div>
+            <script>
+                const containerToolsWeb = document.getElementById('toolsUsedWeb');
+                webTools.forEach(tool => {
+                    containerToolsWeb.innerHTML += `
+                    <div class="flex flex-col items-center group">
+                        <img src="${tool.icon}" alt="${tool.name} Icon" class="w-10 h-10 my-2 group-hover:wiggle">
+                        <span class="text-xs">${tool.name}</span>
+                    </div>
+                    `;
+                });
+            </script>
+        </div>
+    </div>
+
     <script>
         const containerWeb = document.getElementById('projectContainerWeb');
         projectsWeb.forEach(project => {
             let toolsHTML = '';
             project.tools.forEach(tools => {
                 toolsHTML += `
-                    <span class="bg-gray-200 px-2 py-1 rounded text-sm flex items-center">
+                    <span class="bg-gray-200 px-2 py-1 rounded text-xs flex items-center">
                         <img src="${tools.icon}" class="w-4 h-4 mr-1" />
                         ${tools.name}
                     </span>
@@ -113,8 +137,8 @@
                         <img src="${project.image}" alt="${project.title}" class="w-full h-40 object-cover transition-all duration-300 hover:brightness-75">
                     </a>
                     <div class="px-6 py-4">
-                        <h3 class="text-xl font-bold">${project.title}</h3>
-                        <p class="text-gray-600 mb-4">${project.description}</p>
+                        <h3 class="font-bold">${project.title}</h3>
+                        <p class="text-sm text-gray-600 mb-4">${project.description}</p>
                         <div class="flex gap-2 mt-4">
                             ${toolsHTML}
                         </div>
@@ -124,37 +148,72 @@
         });
     </script>
 
-    <div class="max-w-screen-2xl mx-auto border-b-[1px] border-[#bd5873] mb-20"></div>
+    <!-- <div class="max-w-screen-2xl mx-auto border-b-[1px] border-[#bd5873] mb-20"></div> -->
     
-    <!-- Design creative canvas -->
-    <!-- <section id="projects" class="max-w-screen-2xl mx-auto py-20 mb-20 flex flex-col md:flex-row items-start">
-        <div id="default-carousel" class="projectContainerDesign grid grid-cols-2 md:grid-cols-4 gap-8 w-full">
 
-        </div>
-        <div class="w-2/5 pr-16 my-auto">
-            <h2 class="text-[5rem] text-[#af2c4f] mb-4 leading-[0.9] font-bold font-[Barriecito] text-right] text-right">Creative Canvas</h2>
-            <p class="text-xl text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
+
+    <!-- Design Title -->
+    <section id="title" class="h-screen my-40 flex flex-col items-center justify-center">
+        <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-center font-bold">my graphic design projects.</h2>
+        <p class="text-lg text-center text-gray-700 italic">"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson</p>
+    </section>
+
+
+    <!-- Design -->
+    <section id="projects" class="max-w-5xl mx-auto pt-40 flex flex-col md:flex-row items-start">
+        <div id="" class="projectContainerDesign grid grid-cols-1 md:grid-cols-3 gap-4 w-full"></div>
+        <div class="w-2/5 pr-16 sticky top-20 pl-12">
+            <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold ">all about creativity.</h2>
+            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
         </div>
     </section>
+    <!-- Tools used -->
+    <div class="text-center py-7 my-16 bg-white border-y border-red-700">
+        <div class="max-w-5xl mx-auto">
+            <p class="text-3xl font-bold text-red-700">Canvas Tools Used</p>
+            <div id="toolsUsedDesign" class="flex justify-center gap-8 mt-4"></div>
+            <script>
+                const containerToolsDesign = document.getElementById('toolsUsedDesign');
+                designTools.forEach(tool => {
+                    containerToolsDesign.innerHTML += `
+                    <div class="flex flex-col items-center group">
+                        <img src="${tool.icon}" alt="${tool.name} Icon" class="w-10 h-10 my-2 group-hover:wiggle">
+                        <span class="text-xs">${tool.name}</span>
+                    </div>
+                    `;
+                });
+            </script>
+        </div>
+    </div>
     <script>
         const containerDesign = document.querySelector('.projectContainerDesign');
         projectsDesign.forEach(project => {
+            let toolsHTML = '';
+            project.tags.forEach(tag => {
+                toolsHTML += `
+                    <span class="bg-gray-200 px-2 py-1 rounded text-xs italic flex items-center justify-center">
+                        #${tag.name}
+                    </span>
+                `;
+            });
             containerDesign.innerHTML += `
-                <div class="relative w-[230px] h-[230px] rounded-md shadow-lg overflow-hidden group">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center text-center p-4 z-10">
-                        <h3 class="text-xl font-bold">${project.title}</h3>
-                        <p class="text-sm">${project.description}</p>
+                <div class="bg-white text-center p-4 relative w-52 h-auto rounded-lg shadow-xl group transform transition-transform duration-300 hover:scale-105">
+                    <img src="${project.image}" alt="${project.title}" class="w-44 h-44 object-cover rounded-lg mx-auto">
+                    <p class="font-bold mt-2">${project.title}</p>
+                    <div class="flex gap-2 mt-2 justify-center">
+                        ${toolsHTML}
                     </div>
-                    <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
                 </div>
             `;
         });
-    </script> -->
-
+    </script>
     
 
-    <div class="max-w-screen-2xl mx-auto border-b-[1px] border-[#bd5873] mb-20"></div>
-
+    <!-- Video Title -->
+    <section id="title" class="h-screen my-40 flex flex-col items-center justify-center">
+        <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-center font-bold">my video projects.</h2>
+        <p class="text-lg text-center text-gray-700 italic">"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson</p>
+    </section>
 
 
     <!-- Video -->
@@ -181,9 +240,13 @@
     </script> -->
 
     <!-- Footer -->
-    <footer class="text-gray-800 px-5 text-center text-xl py-7">
+    <footer class="text-gray-800 px-5 text-center py-4">
         <p>&copy; 2024 Muhamad Ilham Zakaria. All rights reserved.</p>
     </footer>
+
+    <script>
+        ScrollReveal().reveal('#title', {delay: 500});
+    </script>
 
 </body>
 </html>
