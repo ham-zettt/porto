@@ -62,10 +62,10 @@ const projectsWeb = [
 		title: "Trunojoyo AI",
 		image: "images/web/1-trunojoyo-ai.jpg",
 		description:
-			"Developed an AI-powered web platform that integrates machine learning",
+			"A Generative AI web application capable of rapidly synthesizing and combining batik motifs",
 		role: "Fullstack Developer & AI Engineer",
 		link: "https://trunojoyo-ai.id",
-		github: "https://trunojoyo-ai.id",
+		github: "https://github.com/ham-zettt/trunojoyo-ai",
 		tools: [
 			{
 				name: "Python",
@@ -80,8 +80,7 @@ const projectsWeb = [
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 			},
 		],
-		detail: "Developed an AI-powered web platform that integrates machine learning models with a modern web interface. Responsible for backend APIs, frontend development, deployment, and model integration.",
-		// images: used inside modal carousel (first image is shown initially)
+		detail: "Engineered Batik Combinator & Patch Generator, a flagship Generative AI web application featured on the Trunojoyo AI platform. The system rapidly generates and blends intricate traditional Nitik batik patterns, preserving cultural heritage through automated algorithmic design.",
 		imagesDetail: [
 			"images/web/1-trunojoyo-ai.jpg",
 			"images/web/4-trunojoyo-ai.jpg",
@@ -89,20 +88,75 @@ const projectsWeb = [
 			"images/web/2-trunojoyo-ai.jpg",
 		],
 	},
+
 	{
-		title: "Tambal Ban Online",
+		title: "E-Procurement System",
+		image: "images/web/4-erp.png",
 		description:
-			"An application that connects users with nearby tire repairmans  services",
-		image: "/images/me.jpg",
-		link: "#",
-		images: ["/images/me.jpg", "/images/me.jpg"],
+			"A  procurement management system built to automate corporate resource planning workflows.",
+		role: "Fullstack Developer & AI Engineer",
+		link: "https://e-procurement.global-inovasi.com/login",
+		github: "",
+		tools: [
+			{
+				name: "Codeigniter",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+			},
+			{
+				name: "PostgreSQL",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+			},
+		],
+		detail: "Developed an end-to-end Web-Based Procurement ERP System for CV Purnama Kreatifa. Designed to streamline enterprise supply chain workflows—ranging from purchase requisitions and secure payment tracking to automated financial reporting.",
+		imagesDetail: [
+			"images/web/4-erp.png",
+			"images/web/2-erp.png",
+			"images/web/3-erp.png",
+			"images/web/1-erp.png",
+		],
+	},
+
+	{
+		title: "D'Bherunk Cafe Cashier",
+		image: "images/web/2-cafe.jpg",
+		description:
+			"A responsive Point of Sale to enhance the efficiency of cafe order operations.",
+		role: "Fullstack Developer & AI Engineer",
+		link: "",
+		github: "https://github.com/ham-zettt/dbherunk-cafe",
+		tools: [
+			{
+				name: "React",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+			},
+			{
+				name: "Express JS",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+			},
+			{
+				name: "MySQL",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+			},
+		],
+		detail: "Built a responsive Point of Sale (POS) & Order Management System for d'bherunk Cafe. Optimized to accelerate cashier transaction speed, minimize order errors, and simplify daily F&B operational workflows.",
+		imagesDetail: ["images/web/2-cafe.jpg", "images/web/1-cafe.jpg"],
+	},
+
+	{
+		title: "OnBan (Tambal Ban Online)",
+		image: "images/web/2-onban-collage.png",
+		description:
+			"An on-demand web application connecting users experiencing flat tires with verified local mechanics.",
+		role: "Fullstack Developer & AI Engineer",
+		link: "",
+		github: "https://github.com/abdulrahemfaqih/onban-app",
 		tools: [
 			{
 				name: "Laravel",
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
 			},
 			{
-				name: "Tailwind",
+				name: "Tailwind CSS",
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
 			},
 			{
@@ -110,128 +164,33 @@ const projectsWeb = [
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 			},
 		],
-	},
-	{
-		title: "Sistem Cuti Akademik",
-		description: "Brief description of project 2 and its key features.",
-		image: "/images/project2.jpg",
-		link: "#",
-		images: ["/images/project2.jpg", "/images/project2.jpg"],
-		tools: [
-			{
-				name: "Laravel",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
-			},
-			{
-				name: "Tailwind",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-			},
-			{
-				name: "MySQL",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-			},
+		detail: "Designed On Ban, an on-demand roadside assistance web platform that connects stranded motorists with nearby registered tire repair mechanics—eliminating the hassle of manually searching for repair shops during emergencies.",
+		imagesDetail: [
+			"images/web/1-onban-collage.png",
+			"images/web/2-onban-collage.png",
 		],
 	},
+
 	{
-		title: "Sistem Cuti Akademik",
-		description: "Brief description of project 2 and its key features.",
-		image: "/images/project2.jpg",
-		link: "#",
-		images: ["/images/project2.jpg", "/images/project2.jpg"],
-		tools: [
-			{
-				name: "Laravel",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
-			},
-			{
-				name: "Tailwind",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-			},
-			{
-				name: "MySQL",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-			},
-		],
-	},
-	{
-		title: "Sistem Cuti Akademik",
-		description: "Brief description of project 2 and its key features.",
-		image: "/images/project2.jpg",
-		link: "#",
-		images: ["/images/project2.jpg", "/images/project2.jpg"],
-		tools: [
-			{
-				name: "Laravel",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
-			},
-			{
-				name: "Tailwind",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-			},
-			{
-				name: "MySQL",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-			},
-		],
-	},
-	{
-		title: "Microservice Application",
-		description: "Brief description of project 3 and its key features.",
-		image: "/images/project3.jpg",
-		link: "#",
-		images: ["/images/project3.jpg", "/images/project3.jpg"],
-		tools: [
-			{
-				name: "Docker",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-			},
-			{
-				name: "Flask",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
-			},
-			{
-				name: "SQLAlchemy",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg",
-			},
-		],
-	},
-	{
-		title: "Sistem Sekolah SMP Terintegrasi",
-		description: "Brief description of project 3 and its key features.",
-		image: "/images/project3.jpg",
-		link: "#",
-		images: ["/images/project3.jpg", "/images/project3.jpg"],
-		tools: [
-			{
-				name: "Laravel",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
-			},
-			{
-				name: "Tailwind",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-			},
-			{
-				name: "MySQL",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-			},
-		],
-	},
-	{
-		title: "Kidney Disease Prediction System",
-		description: "Brief description of project 3 and its key features.",
-		image: "/images/project3.jpg",
-		link: "#",
-		images: ["/images/project3.jpg", "/images/project3.jpg"],
+		title: "Pathole Image Detection",
+		image: "images/web/1-pathole.jpg",
+		description:
+			"A machine learning-based image detection system for identifying pathole disease in crops.",
+		role: "Fullstack Developer & AI Engineer",
+		link: "https://drive.google.com/file/d/1ZDN9FLz5BToywO3EvB481-vAFNkObrMu/view?usp=sharing",
+		github: "",
 		tools: [
 			{
 				name: "Python",
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
 			},
 			{
-				name: "Streamlit",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg",
+				name: "Pytorch",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
 			},
 		],
+		detail: "Developed a Deep Learning Computer Vision model utilizing semantic segmentation to accurately detect and localize road potholes from visual data, providing an automated solution for road infrastructure maintenance.",
+		imagesDetail: ["images/web/1-pathole.jpg", "images/web/2-pathole.jpg"],
 	},
 ];
 

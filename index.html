@@ -110,23 +110,28 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero max-w-5xl mx-auto text-black py-20 h-screen flex">
-        <div class="w-1/2 flex flex-col justify-center items-center" data-aos="zoom-in">
-            <img src="/images/me.png" alt="Profile Image" class="w-60 rounded-lg shadow-xl">
-        </div>
-        <div class="w-1/2 flex flex-col justify-center">
-            <p class="text-md font-semibold font-sans"><span class="italic text-red-700">Created By</span> MUHAMMAD ILHAM ZAKARIA</p>
-            <h1 class="text-[4rem] font-[Poppins] font-bold leading-[0.9] text-gray-800 py-10 transition-all duration-300 ease-in-out relative z-10" data-aos="fade-right">personal portfolio.</h1>
-            <div class="h-3 bg-red-600 w-20 -mt-5 mb-10 relative" data-aos="fade-right" data-aos-delay="200"></div>
-            <p class="italic" data-aos="fade-right" data-aos-delay="400">I’m a Informatic Engineering College-Student with a focus on web-development. I specialize in building user-friendly, responsive and visually appealing websites using web-tools and frameworks</p>
-            
-            <div class="flex gap-4" data-aos="fade-right" data-aos-delay="600">
-                <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white text-sm px-4 py-3 rounded-full shadow-lg hover:bg-gradient-to-r hover:from-red-700 hover:via-red-800 hover:to-red-900 text-center mt-6 flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a1 1 0 01-1-1v-6H7a1 1 0 01-.707-1.707l3-3a1 1 0 011.414 0l3 3A1 1 0 0113 11h-2v6a1 1 0 01-1 1zM4 4a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd" />
-                    </svg>
-                    Download CV
-                </a>
+    <section id="hero" class="hero w-full min-h-screen flex items-center justify-center text-black" >
+      <div class="absolute inset-0 bg-[url('images/bg.jpg')] bg-cover bg-center bg-no-repeat blur-sm scale-105 -z-10">
+</div>
+        <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center">
+            <div class="w-full md:w-1/2 flex flex-col justify-center items-center" data-aos="zoom-in">
+                <img src="/images/me-white.png" alt="Profile Image" class="w-60 rounded-lg shadow-xl">
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col justify-center">
+                <p class="text-md font-semibold font-sans"><span class="italic text-red-700">Personal Portofolio By</span> MUHAMMAD ILHAM ZAKARIA</p>
+                <h1 class="text-[3rem] font-[Poppins] font-bold leading-[0.9] text-gray-800 py-10 transition-all duration-300 ease-in-out relative z-10" data-aos="fade-right">Muhammad Ilham Zakaria, here!</h1>
+                <div class="h-3 bg-red-600 w-20 -mt-5 mb-10 relative" data-aos="fade-right" data-aos-delay="200"></div>
+                <p class="italic" data-aos="fade-right" data-aos-delay="400">Informatics Engineering graduate with a strong foundation in software development and artificial intelligence. Experienced in building
+applications using Laravel, Node.js, Codeigniter, and creating AI projects with Python FastAPI.</p>
+                
+                <div class="flex gap-4" data-aos="fade-right" data-aos-delay="600">
+                    <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white text-sm px-4 py-3 rounded-full shadow-lg hover:bg-gradient-to-r hover:from-red-700 hover:via-red-800 hover:to-red-900 text-center mt-6 flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a1 1 0 01-1-1v-6H7a1 1 0 01-.707-1.707l3-3a1 1 0 011.414 0l3 3A1 1 0 0113 11h-2v6a1 1 0 01-1 1zM4 4a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd" />
+                        </svg>
+                        Download CV
+                    </a>
+                </div>
             </div>
         </div>
         
@@ -218,7 +223,9 @@ aboutSections.forEach((section, index) => {
     <section id="projects" class="max-w-5xl mx-auto pt-10 flex flex-col md:flex-row items-start">
         <div class="w-2/5 pr-16 sticky top-20">
             <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold" data-aos="fade-up">create & code.</h2>
-            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
+            <p class="text-gray-700">
+                Here are some of my web development projects. Each project represents a unique challenge and solution.
+            </p>
         </div>
         <div id="projectContainerWeb" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
     </section>
@@ -226,7 +233,6 @@ aboutSections.forEach((section, index) => {
     <script>
         const containerWeb = document.getElementById('projectContainerWeb');
         projectsWeb.forEach((project, index) => {
-            console.log(index);
             let toolsHTML = '';
             project.tools.forEach(tools => {
                 toolsHTML += `
@@ -242,13 +248,13 @@ aboutSections.forEach((section, index) => {
                         <button
                             onclick="openProject(${index})"
                             class="absolute top-3 left-3 z-10
-                                bg-white
+                                bg-red-600
                                 rounded-lg
                                 px-4 py-2
                                 text-sm font-semibold
-                                text-black
-                                border border-gray-300
+                                text-white
                                 transition-all duration-300
+                                shadow-xl
                                 hover:bg-red-700 hover:text-white
                                 hover:shadow-lg">
 
@@ -284,7 +290,6 @@ aboutSections.forEach((section, index) => {
             <!-- Contact Form -->
             <div class="bg-white rounded-2xl shadow-xl p-6">
                 <form class="space-y-4">
-
                     <div>
                         <label class="block font-medium text-gray-700 mb-1">
                             Name
@@ -406,11 +411,10 @@ aboutSections.forEach((section, index) => {
 
             let html = "";
             (p.tools || []).forEach(tech=>{
-                html += `
-                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">
-                        ${tech.name}
-                    </span>
-                `;
+                html += `<span class="bg-gray-200 px-2 py-1 rounded text-xs flex items-center">
+                            <img src="${tech.icon}" class="w-4 h-4 mr-1" />
+                            ${tech.name}
+                        </span>`;
             });
 
             document.getElementById("modalTech").innerHTML = html;
