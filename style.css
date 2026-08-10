@@ -1,8 +1,27 @@
 @keyframes wiggle {
-    0%, 100% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
+	0%,
+	100% {
+		transform: rotate(-5deg);
+	}
+	50% {
+		transform: rotate(5deg);
+	}
 }
 
 .group-hover\:wiggle:hover {
-    animation: wiggle 0.5s ease-in-out infinite;
+	animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* Gunakan 'clip' alih-alih 'hidden' agar fitur position: sticky tidak rusak */
+html,
+body {
+	overflow-x: clip;
+	width: 100%;
+}
+
+@media (max-width: 640px) {
+	.mobile-text-scale {
+		font-size: clamp(1.75rem, 8vw, 2.5rem);
+		line-height: 1.15;
+	}
 }

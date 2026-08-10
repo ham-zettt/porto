@@ -1,472 +1,756 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Modern Design</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="about.js"></script>
-    <script src="web.js"></script>
-    <script src="design.js"></script>
-    <script src="video.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Barriecito&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zen+Dots&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portofolio - Modern Design</title>
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="about.js"></script>
+		<script src="web.js"></script>
+		<script src="design.js"></script>
+		<script src="video.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Barriecito&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Zen+Dots&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+		<link rel="stylesheet" href="style.css" />
 
-<div id="projectModal"
-    class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-6">
-    <div class="bg-white rounded-2xl max-w-6xl w-full overflow-hidden relative animate-[fadeIn_.3s]">
-        <button
-            onclick="closeProject()"
-            class="absolute top-5 right-5 text-3xl hover:text-red-600">
-            &times;
-        </button>
+		<!-- REFAKTOR: Tambahan kustomisasi media queries & style reset agar tidak ada horizontal scroll -->
+		<style>
+			/* Gunakan 'clip' alih-alih 'hidden' agar fitur position: sticky tidak rusak */
+			html,
+			body {
+				overflow-x: clip;
+				width: 100%;
+			}
 
-        <div class="grid md:grid-cols-[1.35fr_0.85fr]">
-            <!-- Image Carousel -->
-            <div class="relative aspect-video w-full h-full overflow-hidden bg-zinc-900">
-                <img id="modalImage" class="h-full w-full object-cover">
+			@media (max-width: 640px) {
+				.mobile-text-scale {
+					font-size: clamp(1.75rem, 8vw, 2.5rem);
+					line-height: 1.15;
+				}
+			}
+		</style>
+	</head>
 
-                <button id="prevSlide" onclick="prevSlide()" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/95 rounded-full p-2 shadow-[0_10px_25px_rgba(0,0,0,0.45)] ring-1 ring-black/10 transition hover:scale-105 hover:bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-                    </svg>
-                </button>
+	<!-- REFAKTOR: Pembetulan letak tag <body> yang sebelumnya keliru tertutup di atas -->
+	<body class="bg-gray-100 text-gray-900 font-[Afacad] antialiased">
+		<!-- MODAL PROJECT (Disempurnakan dengan area sentuh >44px dan adaptif mobile-first) -->
+		<div
+			id="projectModal"
+			class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-3 sm:p-6 overflow-y-auto"
+		>
+			<div
+				class="bg-white rounded-2xl max-w-6xl w-full overflow-hidden relative my-auto shadow-2xl"
+			>
+				<!-- Tombol close dengan area klik min 44x44px -->
+				<button
+					onclick="closeProject()"
+					aria-label="Close Modal"
+					class="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 w-11 h-11 flex items-center justify-center text-3xl bg-white/80 rounded-full hover:text-red-600 transition"
+				>
+					&times;
+				</button>
 
-                <button id="nextSlide" onclick="nextSlide()" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/95 rounded-full p-2 shadow-[0_10px_25px_rgba(0,0,0,0.45)] ring-1 ring-black/10 transition hover:scale-105 hover:bg-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                    </svg>
-                </button>
-            </div>
+				<!-- Grid: 1 Kolom di Mobile, 2 Kolom di Desktop -->
+				<div class="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr]">
+					<!-- Image Carousel -->
+					<div
+						class="relative aspect-video w-full h-full min-h-[220px] overflow-hidden bg-zinc-900 flex items-center"
+					>
+						<img
+							id="modalImage"
+							class="h-full w-full object-contain sm:object-cover"
+							alt="Project Detail"
+						/>
 
-            <!-- Content -->
-            <div class="p-8">
+						<!-- Navigasi Carousel Touch-Friendly -->
+						<button
+							id="prevSlide"
+							onclick="prevSlide()"
+							aria-label="Previous"
+							class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center bg-white/90 rounded-full shadow-md hover:scale-105 active:scale-95 transition"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								class="w-5 h-5"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M15.75 19.5 8.25 12l7.5-7.5"
+								/>
+							</svg>
+						</button>
 
-                <h2 id="modalTitle"
-                    class="text-3xl font-bold mb-3">
-                </h2>
+						<button
+							id="nextSlide"
+							onclick="nextSlide()"
+							aria-label="Next"
+							class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center bg-white/90 rounded-full shadow-md hover:scale-105 active:scale-95 transition"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								class="w-5 h-5"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="m8.25 4.5 7.5 7.5-7.5 7.5"
+								/>
+							</svg>
+						</button>
+					</div>
 
-                <p id="modalDescription"
-                    class="text-gray-600 mb-6">
-                </p>
+					<!-- Content Area -->
+					<div
+						class="p-5 sm:p-8 max-h-[65vh] lg:max-h-none overflow-y-auto"
+					>
+						<h2
+							id="modalTitle"
+							class="text-2xl sm:text-3xl font-bold mb-3"
+						></h2>
+						<p
+							id="modalDescription"
+							class="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed"
+						></p>
 
-                <div class="mb-5">
-                    <h3 class="font-semibold mb-2">
-                        My Role
-                    </h3>
+						<div class="mb-5">
+							<h3 class="font-semibold text-sm sm:text-base mb-1">
+								My Role
+							</h3>
+							<p id="modalRole" class="text-sm text-gray-700"></p>
+						</div>
 
-                    <p id="modalRole"></p>
-                </div>
+						<div class="mb-5">
+							<h3 class="font-semibold text-sm sm:text-base mb-2">
+								Tools Used
+							</h3>
+							<div
+								id="modalTech"
+								class="flex flex-wrap gap-2"
+							></div>
+						</div>
 
-                <div class="mb-5">
-                    <h3 class="font-semibold mb-2">
-                        Tools Used
-                    </h3>
+						<div class="flex flex-wrap gap-3 mt-8">
+							<a
+								id="modalGithub"
+								target="_blank"
+								class="flex-1 min-w-[140px] bg-gray-900 text-white px-5 py-3 rounded-lg hover:bg-black flex items-center justify-center text-sm font-medium transition"
+							>
+								<img
+									src="images/github.png"
+									class="w-5 h-5 mr-2"
+									alt="GitHub"
+								/>
+								Repository
+							</a>
+							<a
+								id="modalDemo"
+								target="_blank"
+								class="flex-1 min-w-[140px] bg-red-600 text-white px-5 py-3 rounded-lg hover:bg-red-700 font-bold text-center text-sm transition"
+							>
+								Visit Site ↗
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                    <div id="modalTech"
-                        class="flex flex-wrap gap-2">
-                    </div>
-                </div>
+		<!-- REFAKTOR: NAVBAR DENGAN HAMBURGER MENU RESPONSIVE (MOBILE-FIRST) -->
+		<nav
+			class="bg-gray-100/90 text-gray-900 fixed w-full top-0 z-40 backdrop-blur-md border-b border-red-600 transition-all"
+		>
+			<div
+				class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
+			>
+				<a
+					href="#hero"
+					class="font-bold text-xl sm:text-2xl tracking-tight"
+					>IlhamZakaria</a
+				>
 
-                <div class="flex gap-2 mt-8">
+				<!-- Tombol Hamburger Mobile (Min Target Sentuh: 44x44px) -->
+				<button
+					id="menuBtn"
+					aria-label="Toggle Menu"
+					class="sm:hidden w-11 h-11 flex items-center justify-center rounded-lg hover:bg-gray-200 focus:outline-none"
+				>
+					<svg
+						id="menuIcon"
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						class="w-7 h-7"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+						/>
+					</svg>
+				</button>
 
-                    <a id="modalGithub" target="_blank" class="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-black flex items-center">
-                        <img src="images/github.png" class="w-5 h-5 mr-2">
-                        Repository
-                    </a>
+				<!-- Menu Navigasi (Tersembunyi di mobile, Muncul mendatar di sm: ke atas) -->
+				<ul
+					id="mobileMenu"
+					class="hidden sm:flex flex-col sm:flex-row absolute sm:relative top-full left-0 w-full sm:w-auto bg-gray-100 sm:bg-transparent border-b sm:border-none border-gray-300 shadow-md sm:shadow-none p-6 sm:p-0 gap-4 sm:gap-8 text-lg font-medium"
+				>
+					<li>
+						<a
+							href="#about"
+							class="block py-2 sm:py-0 hover:text-red-600 transition"
+							>About</a
+						>
+					</li>
+					<li>
+						<a
+							href="#projects"
+							class="block py-2 sm:py-0 hover:text-red-600 transition"
+							>Projects</a
+						>
+					</li>
+					<li>
+						<a
+							href="#contact"
+							class="block py-2 sm:py-0 hover:text-red-600 transition"
+							>Contact</a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
-                    <a id="modalDemo" target="_blank" class="bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 font-bold">
-                        Visit Site ↗
-                    </a>
+		<!-- HERO SECTION (Disesuaikan spasi & tipografi mobile) -->
+		<section
+			id="hero"
+			class="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-8 pt-20 overflow-hidden"
+		>
+			<div
+				class="absolute inset-0 bg-[url('images/bg.jpg')] bg-cover bg-center bg-no-repeat blur-sm scale-105 -z-10"
+			></div>
 
-                </div>
+			<div
+				class="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 py-12"
+			>
+				<!-- Foto Profil: Ukuran diatur responsif w-44 di HP, w-60 di desktop -->
+				<div
+					class="w-full md:w-1/2 flex justify-center"
+					data-aos="zoom-in"
+				>
+					<img
+						src="images/me-white.png"
+						alt="Muhammad Ilham Zakaria"
+						class="w-44 sm:w-60 h-auto rounded-xl shadow-2xl object-cover"
+					/>
+				</div>
 
-            </div>
+				<!-- Konten Teks -->
+				<div
+					class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left"
+				>
+					<p class="text-sm sm:text-base font-semibold font-sans">
+						<span class="italic text-red-700"
+							>Personal Portfolio By</span
+						>
+						MUHAMMAD ILHAM ZAKARIA
+					</p>
+					<!-- Ukuran teks responsif menggunakan utility text-3xl hingga 5xl -->
+					<h1
+						class="text-3xl sm:text-4xl lg:text-5xl font-[Poppins] font-bold leading-tight text-gray-800 py-4 sm:py-6"
+						data-aos="fade-right"
+					>
+						Muhammad Ilham Zakaria, here!
+					</h1>
+					<div
+						class="h-2 sm:h-3 bg-red-600 w-16 sm:w-20 mx-auto md:mx-0 mb-6"
+						data-aos="fade-right"
+						data-aos-delay="200"
+					></div>
+					<p
+						class="italic text-sm sm:text-base leading-relaxed text-gray-700"
+						data-aos="fade-right"
+						data-aos-delay="400"
+					>
+						Informatics Engineering graduate with a strong
+						foundation in software development and artificial
+						intelligence. Experienced in building applications using
+						Laravel, Node.js, CodeIgniter, and creating AI projects
+						with Python FastAPI.
+					</p>
 
-        </div>
+					<div
+						class="flex justify-center md:justify-start gap-4 mt-6"
+						data-aos="fade-right"
+						data-aos-delay="600"
+					>
+						<a
+							href="cv.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white text-sm px-6 py-3 rounded-full shadow-lg hover:from-red-600 hover:to-red-800 transition flex items-center justify-center gap-2 min-h-[44px]"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-5 w-5 rotate-180"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M10 18a1 1 0 01-1-1v-6H7a1 1 0 01-.707-1.707l3-3a1 1 0 011.414 0l3 3A1 1 0 0113 11h-2v6a1 1 0 01-1 1zM4 4a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z"
+									clip-rule="evenodd"
+								/>
+							</svg>
+							Download CV
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
 
-    </div>
+		<!-- ABOUT / SKILLS SECTION -->
+		<section id="about" class="py-16 bg-red-600 px-4 sm:px-8">
+			<div class="max-w-6xl mx-auto">
+				<h2
+					class="text-2xl sm:text-4xl font-bold text-white text-center mb-10 capitalize"
+				>
+					Skills and Experience.
+				</h2>
 
-</div>
+				<!-- Grid auto-responsif: 1 kolom di HP, 2 kolom di tablet sm, 3 di lg -->
+				<div
+					id="aboutContainer"
+					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+				></div>
+			</div>
+		</section>
 
-<body class="bg-gray-100 text-gray-900 font-[Afacad]"></body>
-    <nav class="bg-gray-100 bg-opacity-80 text-xl text-gray-900 p-4 fixed w-full top-0 z-50 backdrop-blur-lg border-b border-red-600">
-        <div class="max-w-5xl mx-auto flex justify-between">
-            <div class="font-bold">IlhamZakaria</div>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:text-gray-400 transition">About</a></li>
-                <li><a href="#projects" class="hover:text-gray-400 transition">Projects</a></li>
-                <li><a href="#contact" class="hover:text-gray-400 transition">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero w-full min-h-screen flex items-center justify-center text-black" >
-      <div class="absolute inset-0 bg-[url('images/bg.jpg')] bg-cover bg-center bg-no-repeat blur-sm scale-105 -z-10">
-</div>
-        <div class="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center">
-            <div class="w-full md:w-1/2 flex flex-col justify-center items-center" data-aos="zoom-in">
-                <img src="/images/me-white.png" alt="Profile Image" class="w-60 rounded-lg shadow-xl">
-            </div>
-            <div class="w-full md:w-1/2 flex flex-col justify-center">
-                <p class="text-md font-semibold font-sans"><span class="italic text-red-700">Personal Portofolio By</span> MUHAMMAD ILHAM ZAKARIA</p>
-                <h1 class="text-[3rem] font-[Poppins] font-bold leading-[0.9] text-gray-800 py-10 transition-all duration-300 ease-in-out relative z-10" data-aos="fade-right">Muhammad Ilham Zakaria, here!</h1>
-                <div class="h-3 bg-red-600 w-20 -mt-5 mb-10 relative" data-aos="fade-right" data-aos-delay="200"></div>
-                <p class="italic" data-aos="fade-right" data-aos-delay="400">Informatics Engineering graduate with a strong foundation in software development and artificial intelligence. Experienced in building
-applications using Laravel, Node.js, Codeigniter, and creating AI projects with Python FastAPI.</p>
-                
-                <div class="flex gap-4" data-aos="fade-right" data-aos-delay="600">
-                    <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white text-sm px-4 py-3 rounded-full shadow-lg hover:bg-gradient-to-r hover:from-red-700 hover:via-red-800 hover:to-red-900 text-center mt-6 flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a1 1 0 01-1-1v-6H7a1 1 0 01-.707-1.707l3-3a1 1 0 011.414 0l3 3A1 1 0 0113 11h-2v6a1 1 0 01-1 1zM4 4a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd" />
-                        </svg>
-                        Download CV
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-    
-    <!-- About Section -->
-    <section id="about" class="py-14 bg-red-600">
-        <div class="max-w-8xl mx-auto px-12">
-            <h2 class="text-[2.5rem] font-bold text-white text-center mb-10">
-                skills and experience.
-            </h2>
-
-            <div
-                id="aboutContainer"
-                class="grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center"
-            ></div>
-        </div>
-    </section>
-    <script>
-        const aboutContainer = document.getElementById('aboutContainer');
-
-aboutSections.forEach((section, index) => {
-    aboutContainer.innerHTML += `
-        <div class="bg-gray-100 rounded-xl shadow-lg w-full mx-auto p-2"
-            data-aos="fade-up"
-            data-aos-delay="${index * 100}"
-            >
-            <div class="flex gap-5 h-full">
-                <!-- Left Image -->
-                <div class="w-48 h-48 flex-shrink-0">
-                    <img
-                        src="${section.image}"
-                        alt="${section.title}"
-                        class="w-full h-full object-cover rounded-xl border border-gray-300 grayscale"
-                    >
-                </div>
-
-                <!-- Right Content -->
-                <div class="flex-1 flex flex-col p-2 -ml-2 justify-center">
-
-                    <!-- Header -->
-                    <div class="flex items-center gap-3">
-                        <h3 class="text-xl font-bold text-gray-800">
-                            <i>${section.title}</i>
-                        </h3>
-                    </div>
-
-                    <!-- Description -->
-                    <p class="text-gray-700 text-sm">
-                        ${section.description}
-                    </p>
-
-                </div>
-            </div>
-        </div>
-    `;
-});     
-    </script>
-
-
-    <!-- Web Title -->
-    <section id="title" class="h-screen my-4 flex flex-col items-center justify-center">
-        <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-center font-bold">my website projects.</h2>
-        <p class="text-lg text-center text-gray-700 italic">"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson</p>
-    </section>
-
-
-    <!-- Tools used -->
-    <div class="text-center py-7 my-16 bg-white border-y border-red-700">
-        <div class="max-w-5xl mx-auto">
-            <p class="text-3xl font-bold text-red-700">Programming Tools Used</p>
-            <div id="toolsUsedWeb" class="flex justify-center gap-8 mt-4"></div>
-            <script>
-                const containerToolsWeb = document.getElementById('toolsUsedWeb');
-                webTools.forEach(tool => {
-                    containerToolsWeb.innerHTML += `
-                    <div class="flex flex-col items-center group">
-                        <img src="${tool.icon}" alt="${tool.name} Icon" class="w-10 h-10 my-2 group-hover:wiggle">
-                        <span class="text-xs">${tool.name}</span>
-                    </div>
-                    `;
-                });
-            </script>
-        </div>
-    </div>
-
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-5xl mx-auto pt-10 flex flex-col md:flex-row items-start">
-        <div class="w-2/5 pr-16 sticky top-20">
-            <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold" data-aos="fade-up">create & code.</h2>
-            <p class="text-gray-700">
-                Here are some of my web development projects. Each project represents a unique challenge and solution.
-            </p>
-        </div>
-        <div id="projectContainerWeb" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
-    </section>
-
-    <script>
-        const containerWeb = document.getElementById('projectContainerWeb');
-        projectsWeb.forEach((project, index) => {
-            let toolsHTML = '';
-            project.tools.forEach(tools => {
-                toolsHTML += `
-                    <span class="bg-gray-200 px-2 py-1 rounded text-xs flex items-center">
-                        <img src="${tools.icon}" class="w-4 h-4 mr-1" />
-                        ${tools.name}
-                    </span>
-                `;
-            });
-            containerWeb.innerHTML += `
-                <div onclick="openProject(${index})" class="bg-white rounded-lg shadow-lg overflow-hidden mb-4 w-full transform transition-transform duration-300 hover:scale-105">
-                    <div class="relative">
-                        <button
-                            onclick="openProject(${index})"
-                            class="absolute top-3 left-3 z-10
-                                bg-red-600
-                                rounded-lg
-                                px-4 py-2
-                                text-sm font-semibold
-                                text-white
-                                transition-all duration-300
-                                shadow-xl
-                                hover:bg-red-700 hover:text-white
-                                hover:shadow-lg">
-
-                            Details ↗
-
-                        </button>
-                        <img src="${project.image}" alt="${project.title}" class="w-full h-44 object-cover">
-                    </div>
-                    <div class="px-6 py-4">
-                        <h3 class="font-bold">${project.title}</h3>
-                        <p class="text-sm text-gray-600 mb-4">${project.description}</p>
-                        <div class="flex gap-2 mt-4">
-                            ${toolsHTML}
+		<script>
+			const aboutContainer = document.getElementById("aboutContainer");
+			if (typeof aboutSections !== "undefined") {
+				aboutSections.forEach((section, index) => {
+					aboutContainer.innerHTML += `
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-4 flex flex-col justify-between"
+                        data-aos="fade-up"
+                        data-aos-delay="${index * 100}">
+                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                            <div class="w-24 h-24 sm:w-20 sm:h-20 flex-shrink-0">
+                                <img src="${section.image}" alt="${section.title}" class="w-full h-full object-cover rounded-lg border border-gray-300 grayscale">
+                            </div>
+                            <div class="flex-1 text-center sm:text-left">
+                                <h3 class="text-lg font-bold text-gray-800 mb-1">
+                                    <i>${section.title}</i>
+                                </h3>
+                                <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                                    ${section.description}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
-        });
-    </script>
+                `;
+				});
+			}
+		</script>
 
-<!-- Contact Section -->
-<section id="contact" class="bg-red-600 mt-20 min-h-screen flex items-center justify-center">
-    <div class="max-w-6xl mx-auto px-20">
-        <!-- Heading -->
-        <div class="text-center my-10">
-            <h1 class="text-[2.5rem] font-bold text-white">
-                Contact Me!
-            </h1>
-        </div>
+		<!-- WEB PROJECTS TITLE -->
+		<section
+			id="title"
+			class="py-20 px-4 flex flex-col items-center justify-center text-center"
+		>
+			<!-- Ukuran font disesuaikan dinamis agar tidak meluber di HP kecil -->
+			<h2
+				class="text-3xl sm:text-5xl text-red-700 mb-4 font-bold tracking-tight"
+			>
+				my website projects.
+			</h2>
+			<p class="text-sm sm:text-lg text-gray-600 italic max-w-2xl">
+				"Programs must be written for people to read, and only
+				incidentally for machines to execute." - Harold Abelson
+			</p>
+		</section>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+		<!-- TOOLS USED (Dibuat auto-wrap supaya tidak scroll horizontal di ponsel) -->
+		<div
+			class="text-center py-10 my-8 bg-white border-y border-red-700 px-4"
+		>
+			<div class="max-w-5xl mx-auto">
+				<p class="text-xl sm:text-2xl font-bold text-red-700 mb-6">
+					Programming Tools Used
+				</p>
+				<div
+					id="toolsUsedWeb"
+					class="flex flex-wrap justify-center items-center gap-6 sm:gap-8"
+				></div>
+				<script>
+					const containerToolsWeb =
+						document.getElementById("toolsUsedWeb");
+					if (typeof webTools !== "undefined") {
+						webTools.forEach((tool) => {
+							containerToolsWeb.innerHTML += `
+                        <div class="flex flex-col items-center group w-16">
+                            <img src="${tool.icon}" alt="${tool.name} Icon" class="w-9 h-9 sm:w-10 sm:h-10 my-1 object-contain transition group-hover:scale-110">
+                            <span class="text-[11px] sm:text-xs text-gray-600 text-center">${tool.name}</span>
+                        </div>
+                        `;
+						});
+					}
+				</script>
+			</div>
+		</div>
 
-            <!-- Contact Form -->
-            <div class="bg-white rounded-2xl shadow-xl p-6">
-                <form class="space-y-4">
-                    <div>
-                        <label class="block font-medium text-gray-700 mb-1">
-                            Name
-                        </label>
-                        <input
-                            type="text"
-                            class="w-full rounded-lg border border-gray-200 px-4 py-2.5 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500"
-                            placeholder="Your name">
+		<!-- PROJECTS SECTION (Layout diubah dari split vertikal paksa menjadi sekuensial di mobile) -->
+		<!-- PROJECTS SECTION -->
+		<!-- Hapus 'items-start' agar kolom kiri otomatis memanjang setinggi total kartu proyek di kolom kanan -->
+		<section
+			id="projects"
+			class="max-w-6xl mx-auto px-4 sm:px-8 py-16 flex flex-col lg:flex-row gap-10 relative"
+		>
+			<!-- Kolom Kiri: Wadah Tinggi -->
+			<div class="w-full lg:w-1/3">
+				<!-- Inner Wrapper: Elemen yang Menempel (Sticky) -->
+				<!-- top-24 (96px) memberi jarak aman di bawah Navbar agar teks tidak tertumpuk header -->
+				<div
+					class="sticky top-24 z-10 text-center lg:text-left transition-all duration-300"
+				>
+					<h2
+						class="text-3xl sm:text-5xl text-red-700 mb-4 font-bold leading-tight"
+						data-aos="fade-up"
+					>
+						create & code.
+					</h2>
+					<p
+						class="text-gray-600 text-sm sm:text-base leading-relaxed"
+					>
+						Here are some of my web development projects. Each
+						project represents a unique challenge and solution.
+					</p>
+
+					<!-- Garis Aksen Tambahan (Opsional: Mempercantik tampilan sticky di desktop) -->
+					<div
+						class="hidden lg:block w-12 h-1 bg-red-600 mt-6 rounded-full"
+					></div>
+				</div>
+			</div>
+
+			<!-- Kolom Kanan: Daftar Card Portofolio -->
+			<div
+				id="projectContainerWeb"
+				class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full lg:w-2/3"
+			></div>
+		</section>
+
+		<script>
+			const containerWeb = document.getElementById("projectContainerWeb");
+			if (typeof projectsWeb !== "undefined") {
+				projectsWeb.forEach((project, index) => {
+					let toolsHTML = "";
+					(project.tools || []).forEach((tools) => {
+						toolsHTML += `
+                        <span class="bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-md text-[11px] font-medium text-gray-700 flex items-center">
+                            <img src="${tools.icon}" class="w-3.5 h-3.5 mr-1.5 object-contain" alt="" />
+                            ${tools.name}
+                        </span>
+                    `;
+					});
+					containerWeb.innerHTML += `
+                    <div onclick="openProject(${index})" class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                        <div class="relative aspect-video w-full overflow-hidden bg-gray-100">
+                            <!-- Tombol Details berarea sentuh yang cukup -->
+                            <span class="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-semibold px-3 py-1.5 rounded-md shadow">
+                                Details ↗
+                            </span>
+                            <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900 mb-2">${project.title}</h3>
+                                <p class="text-xs sm:text-sm text-gray-600 line-clamp-2 mb-4 leading-relaxed">${project.description}</p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100">
+                                ${toolsHTML}
+                            </div>
+                        </div>
                     </div>
+                `;
+				});
+			}
+		</script>
 
-                    <div>
-                        <label class="block font-medium text-gray-700 mb-1">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            class="w-full rounded-lg border border-gray-200 px-4 py-2.5 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500"
-                            placeholder="your@email.com">
-                    </div>
+		<!-- CONTACT SECTION (Refaktor padding berlebihan & penyusunan ulang form) -->
+		<section id="contact" class="bg-red-600 mt-20 py-16 px-4 sm:px-8">
+			<div class="max-w-5xl mx-auto">
+				<div class="text-center mb-10">
+					<h2 class="text-3xl sm:text-4xl font-bold text-white">
+						Contact Me!
+					</h2>
+				</div>
 
-                    <div>
-                        <label class="block font-medium text-gray-700 mb-1">
-                            Message
-                        </label>
-                        <textarea
-                            rows="3"
-                            class="w-full rounded-lg border border-gray-200 px-4 py-2.5 bg-gray-50 resize-none focus:outline-none focus:ring-2 focus:ring-red-500"
-                            placeholder="Write your message..."></textarea>
-                    </div>
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+				>
+					<!-- Form Input -->
+					<div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+						<form
+							class="space-y-4"
+							onsubmit="event.preventDefault()"
+						>
+							<div>
+								<label
+									class="block text-sm font-semibold text-gray-700 mb-1"
+									>Name</label
+								>
+								<input
+									type="text"
+									class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+									placeholder="Your name"
+								/>
+							</div>
+							<div>
+								<label
+									class="block text-sm font-semibold text-gray-700 mb-1"
+									>Email</label
+								>
+								<input
+									type="email"
+									class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+									placeholder="your@email.com"
+								/>
+							</div>
+							<div>
+								<label
+									class="block text-sm font-semibold text-gray-700 mb-1"
+									>Message</label
+								>
+								<textarea
+									rows="4"
+									class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm bg-gray-50 resize-none focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+									placeholder="Write your message..."
+								></textarea>
+							</div>
+							<button
+								class="w-full min-h-[44px] bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 active:scale-98 transition shadow-md"
+							>
+								Send Message
+							</button>
+						</form>
+					</div>
 
-                    <button
-                        class="w-full bg-red-600 text-white py-2.5 rounded-lg font-medium hover:bg-red-700 transition">
-                        Send Message
-                    </button>
+					<!-- Informasi Kontak -->
+					<div class="text-white text-center lg:text-left">
+						<p
+							class="uppercase tracking-widest text-red-200 text-xs font-bold"
+						>
+							Get In Touch
+						</p>
+						<h3 class="text-2xl sm:text-3xl font-bold mt-2 mb-4">
+							Let's Work Together.
+						</h3>
+						<p
+							class="text-red-100 mb-8 text-sm sm:text-base leading-relaxed"
+						>
+							I'm always open to discussing new opportunities,
+							collaborations, or simply having a conversation.
+							Feel free to contact me through the form or any of
+							the platforms below.
+						</p>
 
-                </form>
-            </div>
+						<div class="space-y-4 inline-block text-left">
+							<a
+								href="https://github.com/ham-zettt"
+								target="_blank"
+								class="flex items-center gap-3 hover:text-red-200 transition text-sm sm:text-base min-h-[44px]"
+							>
+								<img
+									src="images/github.png"
+									class="w-6 h-6 object-contain"
+									alt="GitHub"
+								/>
+								<span>ham-zettt</span>
+							</a>
+							<a
+								href="https://linkedin.com/in/muhammad-ilham-zakaria-910a5128a"
+								target="_blank"
+								class="flex items-center gap-3 hover:text-red-200 transition text-sm sm:text-base min-h-[44px]"
+							>
+								<img
+									src="images/linkedin.png"
+									class="w-6 h-6 object-contain"
+									alt="LinkedIn"
+								/>
+								<span>Muhammad Ilham Zakaria</span>
+							</a>
+							<a
+								href="https://instagram.com/ham_zkry"
+								target="_blank"
+								class="flex items-center gap-3 hover:text-red-200 transition text-sm sm:text-base min-h-[44px]"
+							>
+								<img
+									src="images/instagram.png"
+									class="w-6 h-6 object-contain"
+									alt="Instagram"
+								/>
+								<span>@ham_zkry</span>
+							</a>
+							<a
+								href="mailto:ilhamzakaria3024@gmail.com"
+								class="flex items-center gap-3 hover:text-red-200 transition text-sm sm:text-base min-h-[44px]"
+							>
+								<img
+									src="images/gmail.png"
+									class="w-6 h-6 object-contain"
+									alt="Email"
+								/>
+								<span>ilhamzakaria3024@gmail.com</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-            <!-- Right Side -->
-            <div class="text-white">
+		<!-- FOOTER -->
+		<footer class="bg-red-800 text-white text-center py-4 px-4 text-sm">
+			<p>
+				&copy; 2026 <b>Muhammad Ilham Zakaria</b>. All rights reserved.
+			</p>
+		</footer>
 
-                <p class="uppercase tracking-[0.25em] text-red-200 font-semibold">
-                    Get In Touch
-                </p>
+		<!-- INTERAKSI SCRIPTS -->
+		<script>
+			// 1. Inisialisasi AOS (Animate on Scroll)
+			AOS.init({
+				duration: 700,
+				easing: "ease-out-cubic",
+				once: true,
+				offset: 50,
+			});
 
-                <h3 class="text-3xl font-bold mt-3 mb-4">
-                    Let's Work Together.
-                </h3>
+			// 2. Logika Hamburger Menu Mobile (Touch Friendly)
+			const menuBtn = document.getElementById("menuBtn");
+			const mobileMenu = document.getElementById("mobileMenu");
 
-                <p class="text-red-100 mb-8 text-sm">
-                    I'm always open to discussing new opportunities,
-                    collaborations, or simply having a conversation.
-                    Feel free to contact me through the form or any of the
-                    platforms below.
-                </p>
+			menuBtn.addEventListener("click", () => {
+				mobileMenu.classList.toggle("hidden");
+			});
 
-                <div class="space-y-4">
+			// Tutup menu otomatis setelah salah satu link navigasi diklik di HP
+			mobileMenu.querySelectorAll("a").forEach((link) => {
+				link.addEventListener("click", () => {
+					if (window.innerWidth < 640) {
+						mobileMenu.classList.add("hidden");
+					}
+				});
+			});
 
-                    <a href="https://github.com/ham-zettt" class="flex items-center gap-3 hover:text-white transition">
-                        <img src="images/github.png" class="w-6" alt="GitHub">
-                        ham-zettt
-                    </a>
+			// 3. Logika Modal Portofolio
+			let modalImages = [];
+			let modalCurrentIndex = 0;
 
-                    <a href="https://linkedin.com/in/muhammad-ilham-zakaria-910a5128a" class="flex items-center gap-3 hover:text-white transition">
-                        <img src="images/linkedin.png" class="w-6" alt="LinkedIn">
-                        Muhammad Ilham Zakaria
-                    </a>
+			function openProject(index) {
+				const p = projectsWeb[index];
 
-                    <a href="https://instagram.com/ham_zkry" class="flex items-center gap-3 hover:text-white transition">
-                        <img src="images/instagram.png" class="w-6" alt="Instagram">
-                        @ham_zkry
-                    </a>
+				modalImages =
+					Array.isArray(p.imagesDetail) && p.imagesDetail.length
+						? p.imagesDetail.slice()
+						: p.image
+							? [p.image]
+							: [];
+				modalCurrentIndex = 0;
 
-                    <a href="mailto:ilhamzakaria3024@gmail.com" class="flex items-center gap-3 hover:text-white transition">
-                        <img src="images/gmail.png" class="w-6" alt="Email">
-                        ilhamzakaria3024@gmail.com
-                    </a>
+				const modalImg = document.getElementById("modalImage");
+				modalImg.src = modalImages[modalCurrentIndex] || p.image || "";
 
-                </div>
+				document.getElementById("modalTitle").innerText = p.title;
+				document.getElementById("modalDescription").innerText =
+					p.detail || p.description || "";
+				document.getElementById("modalRole").innerText = p.role || "";
 
-            </div>
-
-        </div>
-    </div>
-</section>
-    <!-- <div class="max-w-screen-2xl mx-auto border-b-[1px] border-[#bd5873] mb-20"></div> -->
-    
-    <!-- Footer -->
-    <!-- <footer class="text-gray-800 px-5 text-center py-4">
-        <p>&copy; 2026 <b>Muhamad Ilham Zakaria</b>. All rights reserved.</p>
-    </footer> -->
-
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 80
-        });
-        let modalImages = [];
-        let modalCurrentIndex = 0;
-
-        function openProject(index){
-            const p = projectsWeb[index];
-
-            // initialize images array (falls back to p.image if needed)
-            modalImages = Array.isArray(p.imagesDetail) && p.imagesDetail.length ? p.imagesDetail.slice() : (p.image ? [p.image] : []);
-            modalCurrentIndex = 0;
-
-            const modalImg = document.getElementById("modalImage");
-            modalImg.src = modalImages[modalCurrentIndex] || p.image || '';
-
-            document.getElementById("modalTitle").innerText = p.title;
-            document.getElementById("modalDescription").innerText = p.detail || p.description || '';
-            document.getElementById("modalRole").innerText = p.role || '';
-
-            document.getElementById("modalGithub").href = p.github || '#';
-            document.getElementById("modalDemo").href = p.link || '#';
-
-            let html = "";
-            (p.tools || []).forEach(tech=>{
-                html += `<span class="bg-gray-200 px-2 py-1 rounded text-xs flex items-center">
-                            <img src="${tech.icon}" class="w-4 h-4 mr-1" />
+				let html = "";
+				(p.tools || []).forEach((tech) => {
+					html += `<span class="bg-gray-100 border border-gray-200 px-2.5 py-1 rounded text-xs font-medium flex items-center">
+                            <img src="${tech.icon}" class="w-4 h-4 mr-1.5 object-contain" />
                             ${tech.name}
                         </span>`;
-            });
+				});
+				document.getElementById("modalTech").innerHTML = html;
 
-            document.getElementById("modalTech").innerHTML = html;
+				const githubBtn = document.getElementById("modalGithub");
+				if (p.github) {
+					githubBtn.href = p.github;
+					githubBtn.classList.remove("hidden");
+					githubBtn.classList.add("flex");
+				} else {
+					githubBtn.classList.add("hidden");
+					githubBtn.classList.remove("flex");
+				}
 
-            document.getElementById("projectModal").classList.remove("hidden");
-            document.getElementById("projectModal").classList.add("flex");
+				const demoBtn = document.getElementById("modalDemo");
+				if (p.link) {
+					demoBtn.href = p.link;
+					demoBtn.classList.remove("hidden");
+					demoBtn.classList.add("flex");
+				} else {
+					demoBtn.classList.add("hidden");
+					demoBtn.classList.remove("flex");
+				}
 
-            const githubBtn = document.getElementById("modalGithub");
-            if (p.github) {
-                githubBtn.href = p.github;
-                githubBtn.classList.remove("hidden");
-            } else {
-                githubBtn.classList.add("hidden");
-            }
+				// Tampilkan modal dan nonaktifkan scrolling pada background
+				const modal = document.getElementById("projectModal");
+				modal.classList.remove("hidden");
+				modal.classList.add("flex");
+				document.body.style.overflow = "hidden";
+			}
 
-            const demoBtn = document.getElementById("modalDemo");
-            if (p.link) {
-                demoBtn.href = p.link;
-                demoBtn.classList.remove("hidden");
-            } else {
-                demoBtn.classList.add("hidden");
-            }
-        }
+			function nextSlide() {
+				if (!modalImages || modalImages.length === 0) return;
+				modalCurrentIndex =
+					(modalCurrentIndex + 1) % modalImages.length;
+				document.getElementById("modalImage").src =
+					modalImages[modalCurrentIndex];
+			}
 
-        function nextSlide(){
-            if (!modalImages || modalImages.length === 0) return;
-            modalCurrentIndex = (modalCurrentIndex + 1) % modalImages.length;
-            document.getElementById("modalImage").src = modalImages[modalCurrentIndex];
-        }
+			function prevSlide() {
+				if (!modalImages || modalImages.length === 0) return;
+				modalCurrentIndex =
+					(modalCurrentIndex - 1 + modalImages.length) %
+					modalImages.length;
+				document.getElementById("modalImage").src =
+					modalImages[modalCurrentIndex];
+			}
 
-        function prevSlide(){
-            if (!modalImages || modalImages.length === 0) return;
-            modalCurrentIndex = (modalCurrentIndex - 1 + modalImages.length) % modalImages.length;
-            document.getElementById("modalImage").src = modalImages[modalCurrentIndex];
-        }
+			function closeProject() {
+				const modal = document.getElementById("projectModal");
+				modal.classList.remove("flex");
+				modal.classList.add("hidden");
+				document.body.style.overflow = ""; // Kembalikan scroll normal
+			}
 
-    function closeProject(){
-
-        document.getElementById("projectModal").classList.remove("flex");
-        document.getElementById("projectModal").classList.add("hidden");
-
-    }
-    const modal = document.getElementById("projectModal");
-
-    modal.addEventListener("click", function(e){
-
-        if(e.target === modal){
-            closeProject();
-        }
-
-    });
-    </script>
-
-</body>
+			const modal = document.getElementById("projectModal");
+			modal.addEventListener("click", function (e) {
+				if (e.target === modal) {
+					closeProject();
+				}
+			});
+		</script>
+	</body>
 </html>
