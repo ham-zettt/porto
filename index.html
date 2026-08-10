@@ -22,18 +22,30 @@
 
 <div id="projectModal"
     class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-6">
-    <div class="bg-white rounded-2xl max-w-4xl w-full overflow-hidden relative animate-[fadeIn_.3s]">
+    <div class="bg-white rounded-2xl max-w-6xl w-full overflow-hidden relative animate-[fadeIn_.3s]">
         <button
             onclick="closeProject()"
             class="absolute top-5 right-5 text-3xl hover:text-red-600">
             &times;
         </button>
 
-        <div class="grid md:grid-cols-2">
+        <div class="grid md:grid-cols-[1.35fr_0.85fr]">
+            <!-- Image Carousel -->
+            <div class="relative aspect-video w-full h-full overflow-hidden bg-zinc-900">
+                <img id="modalImage" class="h-full w-full object-cover">
 
-            <!-- Image -->
-            <img id="modalImage"
-                class="w-full h-full object-cover">
+                <button id="prevSlide" onclick="prevSlide()" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/95 rounded-full p-2 shadow-[0_10px_25px_rgba(0,0,0,0.45)] ring-1 ring-black/10 transition hover:scale-105 hover:bg-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                    </svg>
+                </button>
+
+                <button id="nextSlide" onclick="nextSlide()" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/95 rounded-full p-2 shadow-[0_10px_25px_rgba(0,0,0,0.45)] ring-1 ring-black/10 transition hover:scale-105 hover:bg-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                    </svg>
+                </button>
+            </div>
 
             <!-- Content -->
             <div class="p-8">
@@ -64,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="flex gap-4 mt-8">
+                <div class="flex gap-2 mt-8">
 
                     <a id="modalGithub" target="_blank" class="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-black flex items-center">
                         <img src="images/github.png" class="w-5 h-5 mr-2">
@@ -177,7 +189,7 @@ aboutSections.forEach((section, index) => {
 
 
     <!-- Web Title -->
-    <section id="title" class="h-screen my-40 flex flex-col items-center justify-center">
+    <section id="title" class="h-screen my-4 flex flex-col items-center justify-center">
         <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-center font-bold">my website projects.</h2>
         <p class="text-lg text-center text-gray-700 italic">"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson</p>
     </section>
@@ -205,7 +217,7 @@ aboutSections.forEach((section, index) => {
     <!-- Projects Section -->
     <section id="projects" class="max-w-5xl mx-auto pt-10 flex flex-col md:flex-row items-start">
         <div class="w-2/5 pr-16 sticky top-20">
-            <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold ">create & code.</h2>
+            <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold" data-aos="fade-up">create & code.</h2>
             <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
         </div>
         <div id="projectContainerWeb" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
@@ -235,6 +247,7 @@ aboutSections.forEach((section, index) => {
                                 px-4 py-2
                                 text-sm font-semibold
                                 text-black
+                                border border-gray-300
                                 transition-all duration-300
                                 hover:bg-red-700 hover:text-white
                                 hover:shadow-lg">
@@ -257,10 +270,10 @@ aboutSections.forEach((section, index) => {
     </script>
 
 <!-- Contact Section -->
-<section id="contact" class="bg-red-600 py-12 mt-20 h-screen flex items-center justify-center">
-    <div class="max-w-6xl mx-auto px-6">
+<section id="contact" class="bg-red-600 mt-20 min-h-screen flex items-center justify-center">
+    <div class="max-w-6xl mx-auto px-20">
         <!-- Heading -->
-        <div class="text-center mb-10">
+        <div class="text-center my-10">
             <h1 class="text-[2.5rem] font-bold text-white">
                 Contact Me!
             </h1>
@@ -359,65 +372,6 @@ aboutSections.forEach((section, index) => {
 </section>
     <!-- <div class="max-w-screen-2xl mx-auto border-b-[1px] border-[#bd5873] mb-20"></div> -->
     
-
-
-    <!-- Design Title -->
-    <!-- <section id="title" class="h-screen my-40 flex flex-col items-center justify-center">
-        <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-center fonjek cont-bold">my graphic design projects.</h2>
-        <p class="text-lg text-center text-gray-700 italic">"Programs must be written for people to read, and only incidentally for machines to execute." - Harold Abelson</p>
-    </section> -->
-
-
-    <!-- Design -->
-    <!-- <section id="projects" class="max-w-5xl mx-auto pt-40 flex flex-col md:flex-row items-start">
-        <div id="" class="projectContainerDesign grid grid-cols-1 md:grid-cols-3 gap-4 w-full"></div>
-        <div class="w-2/5 pr-16 sticky top-20 pl-12">
-            <h2 class="text-[3.5rem] text-red-700 mb-4 leading-[0.9] text-left font-bold ">all about creativity.</h2>
-            <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem velit praesentium ad itaque vitae odit voluptas reiciendis beatae asperiores quaerat eum</p>
-        </div>
-    </section>
-    Tools used 
-    <div class="text-center py-7 my-16 bg-white border-y border-red-700">
-        <div class="max-w-5xl mx-auto">
-            <p class="text-3xl font-bold text-red-700">Canvas Tools Used</p>
-            <div id="toolsUsedDesign" class="flex justify-center gap-8 mt-4"></div>
-            <script>
-                const containerToolsDesign = document.getElementById('toolsUsedDesign');
-                designTools.forEach(tool => {
-                    containerToolsDesign.innerHTML += `
-                    <div class="flex flex-col items-center group">
-                        <img src="${tool.icon}" alt="${tool.name} Icon" class="w-10 h-10 my-2 group-hover:wiggle">
-                        <span class="text-xs">${tool.name}</span>
-                    </div>
-                    `;
-                });
-            </script>
-        </div>
-    </div>
-    <script>
-        const containerDesign = document.querySelector('.projectContainerDesign');
-        projectsDesign.forEach(project => {
-            let toolsHTML = '';
-            project.tags.forEach(tag => {
-                toolsHTML += `
-                    <span class="bg-gray-200 px-2 py-1 rounded text-xs italic flex items-center justify-center">
-                        #${tag.name}
-                    </span>
-                `;
-            });
-            containerDesign.innerHTML += `
-                <div class="bg-white text-center p-4 relative w-52 h-auto rounded-lg shadow-xl group transform transition-transform duration-300 hover:scale-105">
-                    <img src="${project.image}" alt="${project.title}" class="w-44 h-44 object-cover rounded-lg mx-auto">
-                    <p class="font-bold mt-2">${project.title}</p>
-                    <div class="flex gap-2 mt-2 justify-center">
-                        ${toolsHTML}
-                    </div>
-                </div>
-            `;
-        });
-    </script> -->
-    
-
     <!-- Footer -->
     <!-- <footer class="text-gray-800 px-5 text-center py-4">
         <p>&copy; 2026 <b>Muhamad Ilham Zakaria</b>. All rights reserved.</p>
@@ -430,49 +384,68 @@ aboutSections.forEach((section, index) => {
             once: true,
             offset: 80
         });
+        let modalImages = [];
+        let modalCurrentIndex = 0;
+
         function openProject(index){
+            const p = projectsWeb[index];
 
-        const p = projectsWeb[index];
+            // initialize images array (falls back to p.image if needed)
+            modalImages = Array.isArray(p.imagesDetail) && p.imagesDetail.length ? p.imagesDetail.slice() : (p.image ? [p.image] : []);
+            modalCurrentIndex = 0;
 
-        document.getElementById("modalImage").src = p.image;
-        document.getElementById("modalTitle").innerText = p.title;
-        document.getElementById("modalDescription").innerText = p.detail;
-        document.getElementById("modalRole").innerText = p.role;
+            const modalImg = document.getElementById("modalImage");
+            modalImg.src = modalImages[modalCurrentIndex] || p.image || '';
 
-        document.getElementById("modalGithub").href = p.github;
-        document.getElementById("modalDemo").href = p.demo;
+            document.getElementById("modalTitle").innerText = p.title;
+            document.getElementById("modalDescription").innerText = p.detail || p.description || '';
+            document.getElementById("modalRole").innerText = p.role || '';
 
-        let html = "";
+            document.getElementById("modalGithub").href = p.github || '#';
+            document.getElementById("modalDemo").href = p.link || '#';
 
-        p.tools.forEach(tech=>{
-            html += `
-                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">
-                    ${tech.name}
-                </span>
-            `;
-        });
+            let html = "";
+            (p.tools || []).forEach(tech=>{
+                html += `
+                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">
+                        ${tech.name}
+                    </span>
+                `;
+            });
 
-        document.getElementById("modalTech").innerHTML = html;
+            document.getElementById("modalTech").innerHTML = html;
 
-        document.getElementById("projectModal").classList.remove("hidden");
-        document.getElementById("projectModal").classList.add("flex");
-        
-        const githubBtn = document.getElementById("modalGithub");
-        if (p.github) {
-            githubBtn.href = p.github;
-            githubBtn.classList.remove("hidden");
-        } else {
-            githubBtn.classList.add("hidden");
+            document.getElementById("projectModal").classList.remove("hidden");
+            document.getElementById("projectModal").classList.add("flex");
+
+            const githubBtn = document.getElementById("modalGithub");
+            if (p.github) {
+                githubBtn.href = p.github;
+                githubBtn.classList.remove("hidden");
+            } else {
+                githubBtn.classList.add("hidden");
+            }
+
+            const demoBtn = document.getElementById("modalDemo");
+            if (p.link) {
+                demoBtn.href = p.link;
+                demoBtn.classList.remove("hidden");
+            } else {
+                demoBtn.classList.add("hidden");
+            }
         }
 
-        const demoBtn = document.getElementById("modalDemo");
-        if (p.demo) {
-            demoBtn.href = p.demo;
-            demoBtn.classList.remove("hidden");
-        } else {
-            demoBtn.classList.add("hidden");
+        function nextSlide(){
+            if (!modalImages || modalImages.length === 0) return;
+            modalCurrentIndex = (modalCurrentIndex + 1) % modalImages.length;
+            document.getElementById("modalImage").src = modalImages[modalCurrentIndex];
         }
-    }
+
+        function prevSlide(){
+            if (!modalImages || modalImages.length === 0) return;
+            modalCurrentIndex = (modalCurrentIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById("modalImage").src = modalImages[modalCurrentIndex];
+        }
 
     function closeProject(){
 
