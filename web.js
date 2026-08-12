@@ -172,3 +172,10 @@ const projectsWeb = [
 		imagesDetail: ["images/web/1-pathole.jpg", "images/web/2-pathole.jpg"],
 	},
 ];
+
+// Ensure every project has an `images` array (fallback to using `image` twice so carousel UI works)
+projectsWeb.forEach((p) => {
+	if (!p.images) {
+		p.images = p.image ? [p.image, p.image] : [];
+	}
+});
