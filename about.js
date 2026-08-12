@@ -1,6 +1,6 @@
 const aboutSections = [
 	{
-		title: "Frontend Dev",
+		title: "Full Stack Dev",
 		description:
 			"Build responsive and scalable web applications from frontend to backend.",
 		icon: "images/web.png",
@@ -33,11 +33,11 @@ const aboutSections = [
 		],
 	},
 	{
-		title: "Backend Dev",
+		title: "AI Research Team",
 		description:
 			"Develop intelligent AI solutions using machine learning and deep learning.",
 		icon: "images/pen-tool.png",
-		image: "images/backend.jpg",
+		image: "images/ai.jpg",
 		languages: [
 			{
 				name: "Photoshop",
@@ -54,11 +54,11 @@ const aboutSections = [
 		],
 	},
 	{
-		title: "AI Engineer",
+		title: "Head of Teaching Assistant",
 		description:
-			"Create clean and impactful visual designs with a modern and creative approach.",
+			"Lead a teaching assistants, providing guidance to ensure effective practicums.",
 		icon: "images/ai.jpg",
-		image: "images/ai.jpg",
+		image: "images/backend.jpg",
 		languages: [
 			{
 				name: "Premiere Pro",
