@@ -1,10 +1,10 @@
 const aboutSections = [
 	{
-		title: "Full Stack Dev",
+		title: "Fullstack Developer Intern",
 		description:
-			"Build responsive and scalable web applications from frontend to backend.",
+			"Build responsive and scalable web applications from frontend to backend especially ERP Systems in CV. Purnama Kreatifa for 6 months.",
 		icon: "images/web.png",
-		image: "images/web-developer.jpg",
+		image: "images/1-about.jpeg",
 		languages: [
 			{
 				name: "Laravel",
@@ -35,9 +35,9 @@ const aboutSections = [
 	{
 		title: "AI Research Team",
 		description:
-			"Develop intelligent AI solutions using machine learning and deep learning.",
+			"Develop intelligent AI solutions using deep learning with Generative AI models such as GAN'S to generate a Batik Nitik motif for batik innovation solution.",
 		icon: "images/pen-tool.png",
-		image: "images/ai.jpg",
+		image: "images/2-about.jpeg",
 		languages: [
 			{
 				name: "Photoshop",
@@ -54,11 +54,11 @@ const aboutSections = [
 		],
 	},
 	{
-		title: "Head of Teaching Assistant",
+		title: "Head Coordinator of Teaching Assistant",
 		description:
-			"Lead a teaching assistants, providing guidance to ensure effective practicums.",
+			"Led a team of teaching assistants called WARGALAB community, providing guidance to ensure effective practicums in Informatics Engineering UTM.",
 		icon: "images/ai.jpg",
-		image: "images/backend.jpg",
+		image: "images/3-about.jpeg",
 		languages: [
 			{
 				name: "Premiere Pro",

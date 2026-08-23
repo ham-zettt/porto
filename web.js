@@ -60,32 +60,33 @@ const projectsWeb = [
 	},
 
 	{
-		title: "D'Bherunk Cafe Cashier",
-		image: "images/web/3-cafe.jpg",
+		title: "D'Bherunk Cafe Management System",
+		image: "images/web/1-cafe.jpg",
 		description:
-			"A responsive Point of Sale to enhance the efficiency of cafe order operations.",
+			"A responsive Point of Sale to enhance the efficiency of cafe operations.",
 		features: "Menu Management and Order Processing",
 		link: "",
-		github: "https://github.com/ham-zettt/dbherunk-cafe",
+		github: "https://github.com/ham-zettt/bherunk-pos",
 		tools: [
 			{
 				name: "React",
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
 			},
 			{
-				name: "Express JS",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+				name: "Next JS",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
 			},
 			{
-				name: "MySQL",
-				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+				name: "PostgreSQL",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
 			},
 		],
 		detail: "Built a responsive Point of Sale (POS) & Order Management System for d'bherunk Cafe. Optimized to accelerate cashier transaction speed, minimize order errors, and simplify daily F&B operational workflows.",
 		imagesDetail: [
-			"images/web/3-cafe.jpg",
 			"images/web/1-cafe.jpg",
 			"images/web/2-cafe.jpg",
+			"images/web/3-cafe.jpg",
+			"images/web/4-cafe.jpg",
 		],
 	},
 	{
