@@ -1,3 +1,34 @@
+const allTech = [
+	{
+		name: "Laravel",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+	},
+	{
+		name: "Codeigniter",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
+	},
+	{
+		name: "Next.JS",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+	},
+	{
+		name: "React",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+	},
+	{
+		name: "FastAPI",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-plain.svg",
+	},
+	{
+		name: "MySQL",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+	},
+	{
+		name: "PostgreSQL",
+		icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+	},
+];
+
 const projectsWeb = [
 	{
 		title: "Trunojoyo AI",

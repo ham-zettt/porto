@@ -436,14 +436,20 @@
 			if (typeof aboutSections !== "undefined") {
 				aboutSections.forEach((section, index) => {
 					aboutContainer.innerHTML += `
-                    <div class="bg-gray-100 rounded-xl shadow-lg p-4 flex flex-col justify-between"
+                    <div class="bg-gray-100 rounded-xl shadow-lg p-4 flex flex-col justify-between hover:shadow-xl "
                         data-aos="fade-up"
                         data-aos-delay="${index * 100}">
                         <div class="flex flex-col items-center items-center gap-3">
                             <div class="w-full h-48 flex-shrink-0">
-                                <img src="${section.image}" alt="${section.title}" class="w-full h-full object-cover rounded-lg border border-gray-300">
-                            </div>
-                            <div class="flex-1 text-center">
+								<span class="flex items-center gap-1 absolute top-6 left-6 bg-white text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-md shadow">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+										<path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
+									</svg>
+									<p>${section.location}</p>
+								</span>
+								<img src="${section.image}" alt="${section.title}" class="w-full h-full object-cover rounded-lg border border-gray-300">
+							</div>
+							<div class="flex-1 text-center">
                                 <h3 class="text-lg font-bold text-gray-800 mb-1">
                                     <i>${section.title}</i>
                                 </h3>
@@ -518,18 +524,19 @@
 					class="sticky top-24 z-10 text-center lg:text-left transition-all duration-300"
 				>
 					<h2
-						class="text-3xl sm:text-5xl text-red-700 mb-4 font-bold leading-tight"
+						class="text-3xl sm:text-5xl text-red-700 mb-3 font-bold leading-none"
 					>
-						my website projects.
+						my projects.
 					</h2>
 					<p
-						class="text-gray-600 text-sm sm:text-base leading-relaxed"
+						class="text-gray-600 text-sm sm:text-base leading-[1px] mb-3"
 					>
 						Here are some of my web development projects. Each
 						project represents a unique challenge and solution.
 					</p>
 
-					<!-- Garis Aksen Tambahan (Opsional: Mempercantik tampilan sticky di desktop) -->
+					<div id="allTech" class="flex flex-wrap gap-1"></div>
+
 					<div
 						class="hidden lg:block w-12 h-1 bg-red-600 mt-6 rounded-full"
 					></div>
@@ -544,6 +551,17 @@
 		</section>
 
 		<script>
+			const containerAllTech = document.getElementById("allTech");
+			console.log(allTech);
+			allTech.forEach((tech) => {
+				containerAllTech.innerHTML += `
+				<span class="bg-gray-100 border border-gray-300 px-2 py-1 rounded-md text-sm font-medium text-gray-900 flex items-center mb-1">
+					<img src="${tech.icon}" class="w-4 h-4 mr-1.5 object-contain" alt="" />
+					${tech.name}
+				</span>
+			`;
+			});
+
 			const containerWeb = document.getElementById("projectContainerWeb");
 			if (typeof projectsWeb !== "undefined") {
 				projectsWeb.forEach((project, index) => {
@@ -557,7 +575,7 @@
                     `;
 					});
 					containerWeb.innerHTML += `
-                    <div onclick="openProject(${index})" class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+                    <div onclick="openProject(${index})" class="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden cursor-pointer border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2">
                         <div class="relative aspect-video w-full overflow-hidden bg-gray-100">
                             <!-- Tombol Details berarea sentuh yang cukup -->
                             <span class="absolute top-3 left-3 z-10 bg-red-600 text-white text-xs font-semibold px-3 py-1.5 rounded-md shadow">
