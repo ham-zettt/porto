@@ -41,9 +41,8 @@
 		</style>
 	</head>
 
-	<!-- REFAKTOR: Pembetulan letak tag <body> yang sebelumnya keliru tertutup di atas -->
 	<body class="bg-gray-100 text-gray-900 font-[Afacad] antialiased">
-		<!-- MODAL PROJECT (Disempurnakan dengan area sentuh >44px dan adaptif mobile-first) -->
+		<!-- Modal -->
 		<div
 			id="projectModal"
 			class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-3 sm:p-6 overflow-y-auto"
@@ -63,7 +62,71 @@
 				<!-- Grid: 1 Kolom di Mobile, 2 Kolom di Desktop -->
 				<div class="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr]">
 					<!-- Image Carousel -->
-					<div
+					<!-- Container Utama Carousel -->
+					<div class="bg-black flex flex-col gap-3">
+						<div
+							class="relative overflow-hidden rounded-lg"
+							id="carousel-container"
+						>
+							<!-- Track Gambar (Akan bergerak secara horizontal) -->
+							<!-- Menggunakan transition-transform untuk efek geser yang mulus -->
+							<div
+								class="flex transition-transform duration-500 ease-out"
+								id="carousel-track"
+							>
+								<!-- Item gambar akan dimasukkan via JavaScript -->
+							</div>
+
+							<!-- Tombol Prev -->
+							<button
+								id="prev-btn"
+								class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10 bg-white hover:scale-110 hover:opacity-100 opacity-70 cursor-pointer"
+							>
+								<svg
+									class="w-6 h-6"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M15 19l-7-7 7-7"
+									/>
+								</svg>
+							</button>
+
+							<!-- Tombol Next -->
+							<button
+								id="next-btn"
+								class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform z-10 bg-white hover:scale-110 hover:opacity-100 opacity-70 cursor-pointer"
+							>
+								<svg
+									class="w-6 h-6"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M9 5l7 7-7 7"
+									/>
+								</svg>
+							</button>
+
+							<!-- Progress Indicator -->
+							<div
+								class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 p-2 bg-white/20 rounded-xl border border-white/30"
+								id="carousel-indicators"
+							>
+								<!-- Indikator titik akan dimasukkan via JavaScript -->
+							</div>
+						</div>
+					</div>
+					<!-- <div
 						class="relative aspect-video w-full h-full min-h-[220px] overflow-hidden bg-zinc-900 flex items-center"
 					>
 						<img
@@ -72,7 +135,6 @@
 							alt="Project Detail"
 						/>
 
-						<!-- Navigasi Carousel Touch-Friendly -->
 						<button
 							id="prevSlide"
 							onclick="prevSlide()"
@@ -116,7 +178,7 @@
 								/>
 							</svg>
 						</button>
-					</div>
+					</div> -->
 
 					<!-- Content Area -->
 					<div
@@ -458,7 +520,7 @@
 					<h2
 						class="text-3xl sm:text-5xl text-red-700 mb-4 font-bold leading-tight"
 					>
-						my projects.
+						my website projects.
 					</h2>
 					<p
 						class="text-gray-600 text-sm sm:text-base leading-relaxed"
@@ -691,33 +753,119 @@
 			function openProject(index) {
 				const p = projectsWeb[index];
 
-				modalImages =
-					Array.isArray(p.imagesDetail) && p.imagesDetail.length
-						? p.imagesDetail.slice()
-						: p.image
-							? [p.image]
-							: [];
-				modalCurrentIndex = 0;
+				const items = p.imagesDetail;
 
-				const modalImg = document.getElementById("modalImage");
-				modalImg.src = modalImages[modalCurrentIndex] || p.image || "";
+				let currentIndex = 0;
 
+				const track = document.getElementById("carousel-track");
+				const prevBtn = document.getElementById("prev-btn");
+				const nextBtn = document.getElementById("next-btn");
+				const indicatorsContainer = document.getElementById(
+					"carousel-indicators",
+				);
+
+				// Bersihkan carousel terlebih dahulu
+				track.innerHTML = "";
+				indicatorsContainer.innerHTML = "";
+
+				items.forEach((item, index) => {
+					const slide = document.createElement("div");
+
+					slide.className = "shrink-0 w-full h-[500px]";
+
+					slide.innerHTML = `
+            <img 
+                src="${item}" 
+                alt="Project Image ${index + 1}" 
+                class="w-full h-full object-contain rounded-lg select-none pointer-events-none"
+                draggable="false"
+            />
+        `;
+
+					track.appendChild(slide);
+
+					const indicator = document.createElement("button");
+
+					indicator.className = `
+            h-2 rounded-full transition-all duration-300
+            ${index === 0 ? "w-8 bg-white" : "w-2 bg-white/50"}
+        `;
+
+					indicator.addEventListener("click", () => {
+						goToSlide(index);
+					});
+
+					indicatorsContainer.appendChild(indicator);
+				});
+
+				const indicators =
+					indicatorsContainer.querySelectorAll("button");
+
+				function updateUI() {
+					// Geser carousel
+					track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+					// Update indikator
+					indicators.forEach((indicator, index) => {
+						if (index === currentIndex) {
+							indicator.classList.remove("w-2", "bg-white/50");
+
+							indicator.classList.add("w-8", "bg-white");
+						} else {
+							indicator.classList.remove("w-8", "bg-white");
+
+							indicator.classList.add("w-2", "bg-white/50");
+						}
+					});
+				}
+
+				function goToSlide(index) {
+					currentIndex = index;
+					updateUI();
+				}
+
+				prevBtn.onclick = () => {
+					currentIndex =
+						(currentIndex - 1 + items.length) % items.length;
+
+					updateUI();
+				};
+
+				nextBtn.onclick = () => {
+					currentIndex = (currentIndex + 1) % items.length;
+
+					updateUI();
+				};
+
+				updateUI();
+
+				// Isi informasi modal
 				document.getElementById("modalTitle").innerText = p.title;
+
 				document.getElementById("modalDescription").innerText =
 					p.detail || p.description || "";
+
 				document.getElementById("modalRole").innerText =
 					p.features || "";
 
 				let html = "";
+
 				(p.tools || []).forEach((tech) => {
-					html += `<span class="bg-gray-100 border border-gray-200 px-2.5 py-1 rounded text-xs font-medium flex items-center">
-                            <img src="${tech.icon}" class="w-4 h-4 mr-1.5 object-contain" />
-                            ${tech.name}
-                        </span>`;
+					html += `
+            <span class="bg-gray-100 border border-gray-200 px-2.5 py-1 rounded text-xs font-medium flex items-center">
+                <img 
+                    src="${tech.icon}" 
+                    class="w-4 h-4 mr-1.5 object-contain"
+                />
+                ${tech.name}
+            </span>
+        `;
 				});
+
 				document.getElementById("modalTech").innerHTML = html;
 
 				const githubBtn = document.getElementById("modalGithub");
+
 				if (p.github) {
 					githubBtn.href = p.github;
 					githubBtn.classList.remove("hidden");
@@ -728,6 +876,7 @@
 				}
 
 				const demoBtn = document.getElementById("modalDemo");
+
 				if (p.link) {
 					demoBtn.href = p.link;
 					demoBtn.classList.remove("hidden");
@@ -737,10 +886,11 @@
 					demoBtn.classList.remove("flex");
 				}
 
-				// Tampilkan modal dan nonaktifkan scrolling pada background
 				const modal = document.getElementById("projectModal");
+
 				modal.classList.remove("hidden");
 				modal.classList.add("flex");
+
 				document.body.style.overflow = "hidden";
 			}
 

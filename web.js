@@ -46,6 +46,10 @@ const projectsWeb = [
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg",
 			},
 			{
+				name: "Bootstrap",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg",
+			},
+			{
 				name: "PostgreSQL",
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
 			},
@@ -84,9 +88,10 @@ const projectsWeb = [
 		detail: "Built a responsive Point of Sale (POS) & Order Management System for d'bherunk Cafe. Optimized to accelerate cashier transaction speed, minimize order errors, and simplify daily F&B operational workflows.",
 		imagesDetail: [
 			"images/web/1-cafe.jpg",
-			"images/web/2-cafe.jpg",
 			"images/web/3-cafe.jpg",
+			"images/web/2-cafe.jpg",
 			"images/web/4-cafe.jpg",
+			"images/web/5-cafe.jpg",
 		],
 	},
 	{
@@ -104,7 +109,7 @@ const projectsWeb = [
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
 			},
 			{
-				name: "Tailwind",
+				name: "Tailwind CSS",
 				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
 			},
 			{
