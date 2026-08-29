@@ -32,7 +32,7 @@ const allTech = [
 const projectsWeb = [
 	{
 		title: "Trunojoyo AI",
-		image: "images/web/1-trunojoyo-ai.jpg",
+		image: "images/web/1-trunojoyo-ai.webp",
 		description:
 			"A Generative AI web application capable of rapidly synthesizing and combining batik motifs",
 		features:
@@ -55,16 +55,16 @@ const projectsWeb = [
 		],
 		detail: "Engineered Batik Combinator & Patch Generator, a flagship Generative AI web application featured on the Trunojoyo AI platform. The system rapidly generates and blends intricate traditional Nitik batik patterns, preserving cultural heritage through automated algorithmic design.",
 		imagesDetail: [
-			"images/web/1-trunojoyo-ai.jpg",
-			"images/web/4-trunojoyo-ai.jpg",
-			"images/web/3-trunojoyo-ai.jpg",
-			"images/web/2-trunojoyo-ai.jpg",
+			"images/web/1-trunojoyo-ai.webp",
+			"images/web/4-trunojoyo-ai.webp",
+			"images/web/3-trunojoyo-ai.webp",
+			"images/web/2-trunojoyo-ai.webp",
 		],
 	},
 
 	{
 		title: "E-Procurement System",
-		image: "images/web/4-erp.png",
+		image: "images/web/4-erp.webp",
 		description:
 			"A  procurement management system built to automate corporate resource planning workflows.",
 		features:
@@ -87,16 +87,16 @@ const projectsWeb = [
 		],
 		detail: "Developed an end-to-end Web-Based Procurement ERP System for CV Purnama Kreatifa. Designed to streamline enterprise supply chain workflows—ranging from purchase requisitions and secure payment tracking to automated financial reporting.",
 		imagesDetail: [
-			"images/web/4-erp.png",
-			"images/web/2-erp.png",
-			"images/web/3-erp.png",
-			"images/web/1-erp.png",
+			"images/web/4-erp.webp",
+			"images/web/2-erp.webp",
+			"images/web/3-erp.webp",
+			"images/web/1-erp.webp",
 		],
 	},
 
 	{
 		title: "D'Bherunk Cafe Management System",
-		image: "images/web/1-cafe.jpg",
+		image: "images/web/1-cafe.webp",
 		description:
 			"A responsive Point of Sale to enhance the efficiency of cafe operations.",
 		features: "Menu Management and Order Processing",
@@ -118,16 +118,16 @@ const projectsWeb = [
 		],
 		detail: "Built a responsive Point of Sale (POS) & Order Management System for d'bherunk Cafe. Optimized to accelerate cashier transaction speed, minimize order errors, and simplify daily F&B operational workflows.",
 		imagesDetail: [
-			"images/web/1-cafe.jpg",
-			"images/web/3-cafe.jpg",
-			"images/web/2-cafe.jpg",
-			"images/web/4-cafe.jpg",
-			"images/web/5-cafe.jpg",
+			"images/web/1-cafe.webp",
+			"images/web/3-cafe.webp",
+			"images/web/2-cafe.webp",
+			"images/web/4-cafe.webp",
+			"images/web/5-cafe.webp",
 		],
 	},
 	{
 		title: "Sistem Sekolah Terintegrasi",
-		image: "images/web/1-sekolah.jpg",
+		image: "images/web/1-sekolah.webp",
 		description:
 			"A comprehensive school management system designed to streamline administrative and academic processes.",
 		features:
@@ -150,16 +150,16 @@ const projectsWeb = [
 		],
 		detail: "Developed a comprehensive School Management System to automate and streamline administrative and academic processes. The system includes modules for student enrollment, attendance tracking, grade management, and management of student and teacher data.",
 		imagesDetail: [
-			"images/web/1-sekolah.jpg",
-			"images/web/2-sekolah.jpg",
-			"images/web/3-sekolah.jpg",
-			"images/web/4-sekolah.jpg",
+			"images/web/1-sekolah.webp",
+			"images/web/2-sekolah.webp",
+			"images/web/3-sekolah.webp",
+			"images/web/4-sekolah.webp",
 		],
 	},
 
 	{
 		title: "OnBan (Tambal Ban Online)",
-		image: "images/web/2-onban-collage.png",
+		image: "images/web/2-onban-collage.webp",
 		description:
 			"An on-demand web application connecting users experiencing flat tires with verified local mechanics.",
 		features:
@@ -182,14 +182,14 @@ const projectsWeb = [
 		],
 		detail: "Designed On Ban, an on-demand roadside assistance web platform that connects stranded motorists with nearby registered tire repair mechanics—eliminating the hassle of manually searching for repair shops during emergencies.",
 		imagesDetail: [
-			"images/web/1-onban-collage.png",
-			"images/web/2-onban-collage.png",
+			"images/web/1-onban-collage.webp",
+			"images/web/2-onban-collage.webp",
 		],
 	},
 
 	{
 		title: "Pathole Image Detection",
-		image: "images/web/1-pathole.jpg",
+		image: "images/web/1-pathole.webp",
 		description:
 			"A machine learning-based image detection system for identifying pathole disease in crops.",
 		features: "Image Segmentation, Pathole area detection",
@@ -206,7 +206,10 @@ const projectsWeb = [
 			},
 		],
 		detail: "Developed a Deep Learning Computer Vision model utilizing semantic segmentation to accurately detect and localize road potholes from visual data, providing an automated solution for road infrastructure maintenance.",
-		imagesDetail: ["images/web/1-pathole.jpg", "images/web/2-pathole.jpg"],
+		imagesDetail: [
+			"images/web/1-pathole.webp",
+			"images/web/2-pathole.webp",
+		],
 	},
 ];
 
