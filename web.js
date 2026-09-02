@@ -100,7 +100,7 @@ const projectsWeb = [
 		description:
 			"A responsive Point of Sale to enhance the efficiency of cafe operations.",
 		features: "Menu Management and Order Processing",
-		link: "",
+		link: "https://bherunk-pos.vercel.app/",
 		github: "https://github.com/ham-zettt/bherunk-pos",
 		tools: [
 			{
