@@ -125,6 +125,39 @@ const projectsWeb = [
 			"images/web/5-cafe.webp",
 		],
 	},
+
+	{
+		title: "Zenhabits",
+		image: "images/web/1-zenhabits.webp",
+		description:
+			"A personal habit management web-application designed to help users track and maintain their daily habits.",
+		features: "Menu Management and Order Processing",
+		link: "https://zenhabits-frontend.vercel.app/",
+		github: "https://github.com/ham-zettt/zen-habits",
+		tools: [
+			{
+				name: "Go",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg",
+			},
+			{
+				name: "Next JS",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+			},
+			{
+				name: "PostgreSQL",
+				icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+			},
+		],
+		detail: "Developed a personal habit management web-application to help users track and maintain their daily habits.",
+		imagesDetail: [
+			"images/web/1-zenhabits.webp",
+			"images/web/3-zenhabits.webp",
+			"images/web/2-zenhabits.webp",
+			"images/web/4-zenhabits.webp",
+			"images/web/5-zenhabits.webp",
+		],
+	},
+
 	{
 		title: "Sistem Sekolah Terintegrasi",
 		image: "images/web/1-sekolah.webp",
